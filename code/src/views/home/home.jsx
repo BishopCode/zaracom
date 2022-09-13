@@ -1,7 +1,12 @@
+import ListView from '../list-view/list-view';
+import Search from '../search/search';
+import './home.scss';
+
 function Home() {
   return (
-    <main>
-      <h1>HOME</h1>
+    <main className="home">
+      <Search />
+      <ListView />
     </main>
   );
 }
