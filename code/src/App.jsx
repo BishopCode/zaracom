@@ -8,11 +8,11 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Header />
         <BrowserRouter>
+          <Header />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/details" element={<DetailView />} />
+            <Route path="/details/:id" element={<DetailView />} />
           </Routes>
         </BrowserRouter>
       </header>
