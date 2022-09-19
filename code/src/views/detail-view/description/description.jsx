@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import './description.scss';
 
-const { object } = PropTypes;
+const { array } = PropTypes;
 
 function Description({ product }) {
   return (
@@ -38,17 +38,19 @@ function Description({ product }) {
           <b>Dimensiones: </b>
           <span>{product.dimentions}</span>
         </div>
-        <div className="attribute">
-          <b>Peso: </b>
-          <span>{`${product.weight}gr`}</span>
-        </div>
+        {product.weight && (
+          <div className="attribute">
+            <b>Peso: </b>
+            <span>{`${product.weight}gr`}</span>
+          </div>
+        )}
       </div>
     </div>
   );
 }
 
 Description.propTypes = {
-  product: object.isRequired,
+  product: array,
 };
 
 export default Description;

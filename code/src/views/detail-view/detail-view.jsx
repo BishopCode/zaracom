@@ -1,34 +1,39 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { getProductById } from '../../core/services/products/products.service';
 import Actions from './actions/actions';
 import Description from './description/description';
 import './detail-view.scss';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { getProductByIdThunk } from '../../core/store/reducer/products/products.thunk';
+import { useDispatch, useSelector } from 'react-redux';
 
 function DetailView() {
-  const [product, setProduct] = useState([]);
+  const dispatch = useDispatch();
+  const { productSelected } = useSelector((state) => state.products);
   const { id } = useParams();
 
   useEffect(() => {
-    getProductById(id).then((result) => setProduct(result.data));
-    console.log(product);
+    dispatch(getProductByIdThunk(id));
   }, []);
 
   return (
     <div className="detail-view">
-      <div className="detail-view__back">
-        <Link to="/">
-          <ArrowBackIcon className="arrow" />
-        </Link>
-      </div>
-      <div className="detail-view__image">
-        <img src={product.imgUrl}></img>
-      </div>
-      <div className="detail-view__content">
-        <Description product={product} />
-        <Actions />
-      </div>
+      {productSelected && (
+        <>
+          <div className="detail-view__back">
+            <Link to="/">
+              <ArrowBackIcon className="arrow" />
+            </Link>
+          </div>
+          <div className="detail-view__image">
+            <img src={productSelected.imgUrl}></img>
+          </div>
+          <div className="detail-view__content">
+            <Description product={productSelected} />
+            <Actions />
+          </div>
+        </>
+      )}
     </div>
   );
 }

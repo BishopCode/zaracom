@@ -3,6 +3,7 @@ import Badge from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { useSelector } from 'react-redux';
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
@@ -17,9 +18,11 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 }));
 
 export default function ShoppingCart() {
+  const { totalCart } = useSelector((state) => state.products);
+
   return (
     <IconButton aria-label="cart">
-      <StyledBadge badgeContent={2} color="secondary">
+      <StyledBadge badgeContent={totalCart} color="secondary">
         <ShoppingCartIcon />
       </StyledBadge>
     </IconButton>

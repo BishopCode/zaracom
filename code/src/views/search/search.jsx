@@ -10,6 +10,7 @@ function Search() {
 
   function handleOnchangeInput(event) {
     setTextValue(event.target.value);
+    dispatch(filterProducts(event.target.value));
   }
 
   function handleSearch() {
