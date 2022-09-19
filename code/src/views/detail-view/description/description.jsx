@@ -1,44 +1,47 @@
 import PropTypes from 'prop-types';
+import './description.scss';
 
 const { object } = PropTypes;
 
 function Description({ product }) {
   return (
-    <div className="detail-view__description">
+    <div className="description">
       <h1>{`${product.brand} ${product.model}`}</h1>
-      <span className="precio">{`${product.price}€`}</span>
-      <div>
-        <b>CPU:</b>
-        <span>{product.cpu}</span>
-      </div>
-      <div>
-        <b>RAM:</b>
-        <span>{product.ram}</span>
-      </div>
-      <div>
-        <b>Sistema Operativo:</b>
-        <span>{product.os}</span>
-      </div>
-      <div>
-        <b>Resolución Pantalla:</b>
-        <span>{product.displayResolution}</span>
-      </div>
-      <div>
-        <b>Bateria:</b>
-        <span>{product.battery}</span>
-      </div>
-      <div>
-        <b>Camaras:</b>
-        <span>{product.primaryCamera}</span>
-        <span>{product.secondaryCmera}</span>
-      </div>
-      <div>
-        <b>Dimensiones:</b>
-        <span>{product.dimentions}</span>
-      </div>
-      <div>
-        <b>Peso:</b>
-        <span>{`${product.weight}gr`}</span>
+      <span className="description__price">{`${product.price}€`}</span>
+      <div className="description__attributes">
+        <div className="attribute">
+          <b>CPU: </b>
+          <span>{product.cpu}</span>
+        </div>
+        <div className="attribute">
+          <b>RAM: </b>
+          <span>{product.ram}</span>
+        </div>
+        <div className="attribute">
+          <b>Sistema Operativo: </b>
+          <span>{product.os}</span>
+        </div>
+        <div className="attribute">
+          <b>Resolución Pantalla: </b>
+          <span>{product.displayResolution}</span>
+        </div>
+        <div className="attribute">
+          <b>Bateria: </b>
+          <span>{product.battery}</span>
+        </div>
+        <div className="attribute">
+          <b>Camaras: </b>
+          <span>{product.primaryCamera}</span>
+          <span>{product.secondaryCmera}</span>
+        </div>
+        <div className="attribute">
+          <b>Dimensiones: </b>
+          <span>{product.dimentions}</span>
+        </div>
+        <div className="attribute">
+          <b>Peso: </b>
+          <span>{`${product.weight}gr`}</span>
+        </div>
       </div>
     </div>
   );

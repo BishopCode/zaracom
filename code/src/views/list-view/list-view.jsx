@@ -1,17 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Card from '../card/card';
 import { Link } from 'react-router-dom';
 import './list-view.scss';
-import { getProducts } from '../../core/services/products/products.service';
+import PropTypes from 'prop-types';
 
-function ListView() {
-  const [products, setProducts] = useState([]);
+const { array } = PropTypes;
 
-  useEffect(() => {
-    getProducts().then((result) => setProducts(result.data));
-    console.log(products);
-  }, []);
-
+const ListView = ({ products }) => {
   return (
     <div className="listContainer">
       {products &&
@@ -22,6 +17,10 @@ function ListView() {
         ))}
     </div>
   );
-}
+};
+
+ListView.propTypes = {
+  products: array.isRequired,
+};
 
 export default ListView;

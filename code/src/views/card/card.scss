@@ -27,4 +27,16 @@
       color: #ff5656;
     }
   }
+
+  &:hover {
+    transform: scale(102%);
+    transition: all 0.3s ease 0s;
+    box-shadow: 0px 2px 30px 0px #c4c4c4;
+  }
+
+  &:active {
+    transform: scale(98%);
+    box-shadow: 0px 2px 10px 0px #acacac;
+    transition: all 0.1s ease 0s;
+  }
 }
