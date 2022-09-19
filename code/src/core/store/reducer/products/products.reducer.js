@@ -43,6 +43,45 @@ const productsReducer = (state = initialStates, { type, payload }) => {
       };
     }
 
+    case productTypes.ADD_PRODUCT_CART_SUCCESS: {
+      return {
+        ...state,
+        totalCart: state.totalCart + payload.count,
+      };
+    }
+
+    case productTypes.ADD_PRODUCT_CART_FAILURE: {
+      return {
+        ...state,
+        isLoading: false,
+        errorMessage: payload,
+      };
+    }
+
+    case productTypes.GET_PRODUCT_BY_ID_REQUEST: {
+      return {
+        ...state,
+        loading: true,
+        error: null,
+      };
+    }
+
+    case productTypes.GET_PRODUCT_BY_ID_SUCCESS: {
+      return {
+        ...state,
+        loading: false,
+        productSelected: payload,
+      };
+    }
+
+    case productTypes.GET_PRODUCT_BY_ID_FAILURE: {
+      return {
+        ...state,
+        isLoading: false,
+        errorMessage: payload,
+      };
+    }
+
     default:
       return state;
   }
