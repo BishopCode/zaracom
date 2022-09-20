@@ -1,7 +1,11 @@
 import axios from 'axios';
 
-export const getProducts = () => {
+export const getProducts = async () => {
   return axios.get('https://front-test-api.herokuapp.com/api/product');
+  // const { data } = await axios.get(
+  //   'https://front-test-api.herokuapp.com/api/product',
+  // );
+  // return data;
 };
 
 export const getProductById = (id) => {

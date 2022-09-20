@@ -2,11 +2,20 @@ import React, { useEffect } from 'react';
 import ListView from '../list-view/list-view';
 import Search from '../search/search';
 import './home.scss';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { loadProductsAsync } from '../../core/store/reducer/products/products.thunk';
+// import { useQuery } from 'react-query';
+// import { getProducts } from '../../core/services/products/products.service';
 
 function Home() {
   const dispatch = useDispatch();
+  // Meter en store - cachear información
+  // const {
+  //   data: filteredProducts,
+  //   isLoading,
+  //   errorMessage,
+  // } = useQuery(['products'], getProducts);
+
   const { isLoading, filteredProducts, errorMessage } = useSelector(
     (state) => state.products,
   );

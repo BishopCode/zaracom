@@ -7,7 +7,7 @@ function Card({ item }) {
   return (
     <div className="card">
       <div className="card__image">
-        <img src={item.imgUrl} />
+        <img src={item.imgUrl} alt={item.model} loading="lazy" />
       </div>
       <div className="card__info">
         <div>

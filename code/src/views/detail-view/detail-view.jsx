@@ -26,7 +26,7 @@ function DetailView() {
             </Link>
           </div>
           <div className="detail-view__image">
-            <img src={productSelected.imgUrl}></img>
+            <img src={productSelected.imgUrl} alt={productSelected.model}></img>
           </div>
           <div className="detail-view__content">
             <Description product={productSelected} />
