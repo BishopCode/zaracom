@@ -1,3 +1,3 @@
 # zaracom
 
-Readme in folder code
+Readme in code folder.
